@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map with Routing, Data Upload and GIS Analysis</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet Routing Machine CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"
+    />
+    <!-- File Input and Analysis CSS -->
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+
+      #header {
+        height: 50px;
+        background: #f8f9fa;
+        padding: 10px;
+        text-align: center;
+      }
+
+      #footer {
+        height: 30px;
+        background: #f8f9fa;
+        text-align: center;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      #container {
+        display: flex;
+        height: calc(100% - 80px);
+      }
+
+      #sidePane {
+        width: 250px;
+        background: #f1f1f1;
+        padding: 10px;
+        box-shadow: 1px 0 3px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+      }
+
+      #map {
+        flex: 1;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h2>Interactive Map with GIS Analysis, Data Upload, and Routing</h2>
+    </div>
+
+    <div id="container">
+      <div id="sidePane">
+        <h4>Map Analysis, Upload, and Layer Control</h4>
+
+        <!-- Layer Selection -->
+        <h5>Select Layer</h5>
+        <select id="layerSelect">
+          <option value="OSM">OpenStreetMap</option>
+          <option value="Satellite">Satellite</option>
+        </select>
+
+        <!-- File Upload -->
+        <h5>Upload Shapefile or GeoJSON</h5>
+        <input type="file" id="fileInput" accept=".zip, .geojson" />
+        <button id="analyzeData">Perform Buffer Analysis</button>
+
+        <!-- Routing Input -->
+        <h5>Search for Route</h5>
+        <input type="text" id="startCity" placeholder="Enter start city" />
+        <input type="text" id="endCity" placeholder="Enter end city" />
+        <button id="findRoute">Find Route</button>
+      </div>
+
+      <div id="map"></div>
+    </div>
+
+    <div id="footer">
+      <p>Footer Information</p>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet Routing Machine JS -->
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <!-- Shapefile.js to handle shapefile uploads -->
+    <script src="https://unpkg.com/shapefile@0.6.6"></script>
+    <!-- Turf.js for GIS analysis -->
+    <script src="https://unpkg.com/@turf/turf"></script>
+
+    <script>
+      // Initialize the map
+      var map = L.map("map").setView([0, 0], 2);
+
+      // Base layers
+      var baseLayers = {
+        OpenStreetMap: L.tileLayer(
+          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          {
+            maxZoom: 19,
+            attribution: "© OpenStreetMap",
+          }
+        ),
+        Satellite: L.tileLayer(
+          "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+          {
+            maxZoom: 19,
+            attribution: "© OpenStreetMap",
+          }
+        ),
+      };
+
+      // Add default layer (OpenStreetMap)
+      baseLayers["OpenStreetMap"].addTo(map);
+
+      // Layer selection dropdown change event
+      document
+        .getElementById("layerSelect")
+        .addEventListener("change", function () {
+          var selectedLayer = this.value;
+          if (selectedLayer === "OSM") {
+            map.eachLayer(function (layer) {
+              map.removeLayer(layer);
+            });
+            baseLayers["OpenStreetMap"].addTo(map);
+          } else if (selectedLayer === "Satellite") {
+            map.eachLayer(function (layer) {
+              map.removeLayer(layer);
+            });
+            baseLayers["Satellite"].addTo(map);
+          }
+        });
+
+      // Routing Control (Empty initially)
+      var routingControl = null;
+
+      // Function to perform geocoding and find the route
+      function getGeocode(city) {
+        return fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&q=${city}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.length > 0) {
+              return [data[0].lat, data[0].lon];
+            } else {
+              alert(`City ${city} not found`);
+              return null;
+            }
+          });
+      }
+
+      // Find Route Button Click Event
+      document
+        .getElementById("findRoute")
+        .addEventListener("click", function () {
+          var startCity = document.getElementById("startCity").value;
+          var endCity = document.getElementById("endCity").value;
+
+          // Geocode both cities
+          Promise.all([getGeocode(startCity), getGeocode(endCity)]).then(
+            (locations) => {
+              if (locations[0] && locations[1]) {
+                var startLatLng = locations[0];
+                var endLatLng = locations[1];
+
+                // If there is an existing route, remove it
+                if (routingControl) {
+                  map.removeControl(routingControl);
+                }
+
+                // Add the routing control for the route between the two cities
+                routingControl = L.Routing.control({
+                  waypoints: [
+                    L.latLng(startLatLng[0], startLatLng[1]),
+                    L.latLng(endLatLng[0], endLatLng[1]),
+                  ],
+                  routeWhileDragging: true,
+                }).addTo(map);
+
+                // Zoom to the start location
+                map.setView([startLatLng[0], startLatLng[1]], 10);
+              }
+            }
+          );
+        });
+
+      // Handle Shapefile or GeoJSON upload
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function (event) {
+          var file = event.target.files[0];
+          var fileName = file.name;
+
+          // Handle GeoJSON directly or unzip shapefiles
+          if (fileName.endsWith(".geojson")) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var data = JSON.parse(e.target.result);
+              renderGeoJSONLayer(data);
+            };
+            reader.readAsText(file);
+          } else if (fileName.endsWith(".zip")) {
+            // Handle shapefiles by unzipping them using Shapefile.js
+            shapefile.open(file).then(function (source) {
+              return source.read().then(function log(result) {
+                if (result.done) return;
+                renderGeoJSONLayer(result.value);
+                return source.read().then(log);
+              });
+            });
+          }
+        });
+
+      // Render uploaded GeoJSON on the map
+      var geojsonLayer;
+      function renderGeoJSONLayer(data) {
+        if (geojsonLayer) {
+          map.removeLayer(geojsonLayer);
+        }
+        geojsonLayer = L.geoJSON(data).addTo(map);
+        map.fitBounds(geojsonLayer.getBounds());
+      }
+
+      // Perform Buffer Analysis on Uploaded Data
+      document
+        .getElementById("analyzeData")
+        .addEventListener("click", function () {
+          if (!geojsonLayer) {
+            alert("Please upload data first!");
+            return;
+          }
+
+          // Turf.js Buffer analysis (example)
+          var buffered = turf.buffer(geojsonLayer.toGeoJSON(), 0.5, {
+            units: "kilometers",
+          });
+
+          // Add the buffered layer to the map
+          L.geoJSON(buffered, {
+            style: {
+              color: "blue",
+              weight: 2,
+            },
+          }).addTo(map);
+          map.fitBounds(geojsonLayer.getBounds());
+        });
+    </script>
+  </body>
+</html>
