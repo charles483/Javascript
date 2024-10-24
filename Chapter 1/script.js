@@ -133,7 +133,21 @@ const birthYear=1991;
 const now=2037;
 
 
-const charles= " I'M " + firstName + ',a '+ (now-birthYear)  +" Years old " + job
-console.log(charles)
+const charles= " I'M " + firstName + ',a '+ (now-birthYear)  +" Years old " + job;
+console.log(charles);
 
-console.log(`I'm ${firstName}, a ${now-birthYear} years old ${job} `)
+console.log(`I'm ${firstName}, a ${now-birthYear} years old ${job}! `);
+console.log("a string with \n multiple lines \n here and here");
+console.log(`A string with
+multiple lines here
+and there  `);
+
+                        // taking decisions with a program 
+const age=4;
+const isOldEnough=age>=18;
+
+if (isOldEnough){
+    console.log("You are old enough to drive 🚗")
+} else{
+    console.log(`you have to wait ${18-age} years to drive 🚗`)
+}
