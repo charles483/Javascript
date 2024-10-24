@@ -98,8 +98,42 @@ let currentJob='teacher';
 // const isFullAge=ageSarah>=18;
 // console.log(isFullAge);
 // console.log(now-1991>now-2002);
-const now=2037;
-const ageCharles=now-1991;
-const ageSarah=now-2018;
 
-console.log(now-1991>now-2018)  // from mdn docs get the operator precidence table and get the operators with high precedence and thos with lower precidence 
+               // operator precidence
+// const now=2037;
+// const ageCharles=now-1991;
+// const ageSarah=now-2018;
+
+// console.log(now-1991>now-2018);  // from mdn docs get the operator precidence table and get the operators with high precedence and thos with lower precidence 
+
+// console.log(25-10-5);
+// let x,y;
+// x=y=25-10-5;
+// console.log(x,y);
+// const averageAge= (ageCharles+ageSarah)/2
+// console.log(ageCharles,ageSarah)
+// console.log(averageAge)
+            //  coding challenge
+// BMI COMPARISON CHALLENGE
+// let johnHeight=1.95;
+// let markHeight=1.69;
+// let massJohn=92;
+// let massMark=78;
+
+// const BMIMark=massMark/markHeight**2;
+// const BMIJohn=massJohn/johnHeight**2;
+
+// let markHigherBMI=BMIMark>BMIJohn
+// console.log(markHigherBMI)
+// console.log(`mark has a BMI of ${BMIMark} which is higher than john's which is ${BMIJohn}`)
+                // string tempelate literals
+const firstName= 'charles';
+const job='programmer'
+const birthYear=1991;
+const now=2037;
+
+
+const charles= " I'M " + firstName + ',a '+ (now-birthYear)  +" Years old " + job
+console.log(charles)
+
+console.log(`I'm ${firstName}, a ${now-birthYear} years old ${job} `)
