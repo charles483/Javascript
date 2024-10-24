@@ -143,7 +143,7 @@ multiple lines here
 and there  `);
 
                         // taking decisions with a program 
-const age=4;
+const age=15;
 const isOldEnough=age>=18;
 
 if (isOldEnough){
