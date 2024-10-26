@@ -127,27 +127,101 @@ let currentJob='teacher';
 // console.log(markHigherBMI)
 // console.log(`mark has a BMI of ${BMIMark} which is higher than john's which is ${BMIJohn}`)
                 // string tempelate literals
-const firstName= 'charles';
-const job='programmer'
-const birthYear=1991;
-const now=2037;
+// const firstName= 'charles';
+// const job='programmer'
+// const birthYear=1991;
+// const now=2037;
 
 
-const charles= " I'M " + firstName + ',a '+ (now-birthYear)  +" Years old " + job;
-console.log(charles);
+// const charles= " I'M " + firstName + ',a '+ (now-birthYear)  +" Years old " + job;
+// console.log(charles);
 
-console.log(`I'm ${firstName}, a ${now-birthYear} years old ${job}! `);
-console.log("a string with \n multiple lines \n here and here");
-console.log(`A string with
-multiple lines here
-and there  `);
+// console.log(`I'm ${firstName}, a ${now-birthYear} years old ${job}! `);
+// console.log("a string with \n multiple lines \n here and here");
+// console.log(`A string with
+// multiple lines here
+// and there  `);
 
-                        // taking decisions with a program 
-const age=15;
-const isOldEnough=age>=18;
+//                         // taking decisions with a program 
+// const age=15;
+// const isOldEnough=age>=18;
 
-if (isOldEnough){
-    console.log("You are old enough to drive 🚗")
-} else{
-    console.log(`you have to wait ${18-age} years to drive 🚗`)
+// if (isOldEnough){
+//     console.log("You are old enough to drive 🚗")
+// } else{
+//     console.log(`you have to wait ${18-age} years to drive 🚗`)
+// }
+
+            //  coding challenge 2
+
+// BMI COMPARISON CHALLENGE   enhanced using an if else statement
+// let johnHeight=1.95;
+// let markHeight=1.69;
+// let massJohn=92;
+// let massMark=78;
+
+// const BMIMark=massMark/markHeight**2;
+// const BMIJohn=massJohn/johnHeight**2;
+
+// let markHigherBMI=BMIMark>BMIJohn
+// console.log(markHigherBMI) 
+
+// if (BMIJohn>BMIMark){
+//     console.log(`John's BMI ${BMIJohn} Is higher than Mark's BMI ${BMIMark}`)
+// } else{
+//     console.log(`Mark's BMI ${BMIMark} Is higher than John's BMI ${BMIJohn}`)
+// }
+
+                    // type conversion and coercion
+// 1. // type conversion
+
+// convert between different data types directly  manually
+// coersion javascript automatically converts the data types for us
+// const inputYear='1991';
+// console.log(Number(inputYear),inputYear);
+// console.log(Number(inputYear)+18);
+
+// console.log(Number('charles'));  // the operation will yield NaN which means not a number
+// console.log(typeof NaN); // NaN is a number type
+
+// console.log(String(23),23)
+
+// // 2. // type coercion
+// console.log("I'm  " + 23 + " years old");
+// console.log('23'-'10'-3);
+// console.log("23"*"2");
+
+// let n='1'+1;
+// n=n-1;
+// console.log(n);
+
+//                truethy and falsy values 
+// falsy values : 0, '', undefined, null, NaN
+// console.log(Boolean(0));
+// console.log(Boolean(''));
+// console.log(Boolean({}));
+// console.log(Boolean(undefined));
+
+//           equality operators 
+// const age=18;
+// if (age===18) console.log("you just became an adult(strict)");
+
+//                        coding challenge 3 
+
+let dolphinScore1=96;
+let dolphinScore2=108;
+let dolphinScore3=89;
+let koalasScore1=88;
+let koalasScore2=91;
+let koalasScore3=110;
+
+const dolphinAverage=(dolphinScore1+dolphinScore2+dolphinScore3)/3
+const koalasAverage=(koalasScore1+koalasScore2+koalasScore3)/3
+
+if (dolphinAverage>koalasAverage){
+    console.log(`dolphin's average ${dolphinAverage} is higher than koalas' average ${koalasAverage}`)
+}
+else{
+    console.log(`koalas's average ${koalasAverage} is higher than dolphins' average ${dolphinAverage}`)
+    
 }
