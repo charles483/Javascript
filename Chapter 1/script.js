@@ -306,8 +306,8 @@ let currentJob='teacher';
 //          challenge4 bill tip calculator
 
 
-// bill=275;
-// tip=bill>=50&&bill<=300? 0.15*bill: 0.2*bill;
-// total=tip+bill
-// console.log('tip= ', tip)
-// console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${total}`)
+bill=275;
+tip=bill>=50&&bill<=300? 0.15*bill: 0.2*bill;
+total=tip+bill
+console.log('tip= ', tip)
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${total}`)
