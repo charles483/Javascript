@@ -208,20 +208,106 @@ let currentJob='teacher';
 
 //                        coding challenge 3 
 
-let dolphinScore1=96;
-let dolphinScore2=108;
-let dolphinScore3=89;
-let koalasScore1=88;
-let koalasScore2=91;
-let koalasScore3=110;
+// const scoreDolphins=(96+108+89)/3
+// const scoreKoarals=(88+91+110)/3
 
-const dolphinAverage=(dolphinScore1+dolphinScore2+dolphinScore3)/3
-const koalasAverage=(koalasScore1+koalasScore2+koalasScore3)/3
+// console.log(scoreDolphins, scoreKoarals)
+// if (scoreDolphins>scoreKoarals){
+//     console.log('Dolphins wins the trophy 🏆')
+// } else if(scoreKoarals>scoreDolphins){
+//     console.log('Koalas wins the trophy 🏆')
+// } else if(scoreDolphins==scoreKoarals){
+//     console.log('it is a draw 📍 ')
+// } else{
+//     console.log('invalid data used in comparison')
+// }
+//                          bonus 1 and 2
+// const scoreDolphins=(97+112+101)/3
+// const scoreKoarals=(109+95+106)/3
 
-if (dolphinAverage>koalasAverage){
-    console.log(`dolphin's average ${dolphinAverage} is higher than koalas' average ${koalasAverage}`)
-}
-else{
-    console.log(`koalas's average ${koalasAverage} is higher than dolphins' average ${dolphinAverage}`)
-    
-}
+// console.log(scoreDolphins, scoreKoarals)
+// if (scoreDolphins>scoreKoarals &&scoreDolphins>=100){
+//     console.log('Dolphins wins the trophy 🏆');
+// } else if(scoreKoarals>scoreDolphins && scoreKoarals>=100){
+//     console.log('Koalas wins the trophy 🏆');
+// } else if(scoreDolphins===scoreKoarals&&scoreDolphins>100 && scoreKoarals>=100){
+//     console.log('it is a draw 📍 ');
+// } else{
+//     console.log('no one wins the score');
+// }
+
+//             the switch statement 
+// const day='friday';
+// switch(day) {
+//     case 'monday':
+//         console.log('plan for the course introduction');
+//         console.log('Go to the market');
+//         break;
+//     case 'tuesday':
+//         console.log('prepare theory videos');
+//         break;
+//     case 'wednesday':
+//     case 'thursday':
+//         console.log('write code examples');
+//         break;
+//     case 'friday':
+//         console.log('record videos');
+//         break;
+//     case 'saturdar':
+//     case 'sunday':
+//         console.log('enjoy the weekend');
+//     default:
+//         console.log('not a valid day');
+
+// }
+
+// converting the above switch Statements as if else statement 
+// day='sunday'
+// if (day==='monday'){
+//     console.log('plan for the course introduction');
+//     console.log('Go to the market');
+// } else if(day==='tuesday'){
+//     console.log('prepare theory videos');
+
+// } else if (day==='wednesday' || day==='thursday'){
+//     console.log('write code examples');
+// } else if(day==='friday'){
+//     console.log('record videos');
+
+// } else if(day==='saturday' || day==="sunday"){
+//     console.log('enjoy the weekend');
+// } else console.log('invalid input');
+
+//       difference between statemens and expressions
+
+// expresions  produce a value els e.g 3+4 , 299
+// Statements is a biger piece of code that is executed and ddoes not produce any values 
+// e.g if(23>10){
+//     const str='23 is bigger';
+// }  if statement case statemens e.t.c
+
+
+//       conditional / ternaly operators  because it has three parts
+// const age=23;
+// // age>=18 ? console.log('i like to drink wine 🍷'): console.log('you cannot drink the wine you kid');
+
+// const drink=age>18? 'wine 🍷' : 'water 💧';
+// console.log(drink)
+
+// let drink2;
+// if(age>=18){
+//     drink2='wine 🍷';
+// } else{
+//     drink2='water 💧'
+// }
+// console.log(drink2)
+
+// console.log(`i like to drink ${age>18? 'wine 🍷' : 'water 💧'}`);
+//          challenge4 bill tip calculator
+
+
+// bill=275;
+// tip=bill>=50&&bill<=300? 0.15*bill: 0.2*bill;
+// total=tip+bill
+// console.log('tip= ', tip)
+// console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${total}`)
