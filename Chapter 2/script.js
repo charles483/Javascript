@@ -79,16 +79,3 @@ function fruitProcessor(apples, oranges) {
     return juice;
 }
 console.log(fruitProcessor(2, 3)); */
-
-const array = [1, 2, 3, 4, 4, 5, 6, 5, 6];
-
-const removeDup = (array) => {
-  const dup = [];
-  array.forEach((element) => {
-    element.find((val) => {
-      if (val === element) console.log(val);
-    });
-  });
-};
-
-removeDup(array);
