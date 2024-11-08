@@ -79,3 +79,84 @@ function fruitProcessor(apples, oranges) {
     return juice;
 }
 console.log(fruitProcessor(2, 3)); */
+
+// reviewing functions
+// const calcAge = function (birthYear) {
+//   return 2037 - birthYear;
+// };
+
+// const yearsUntilRetirement = function (birthYear, firstNmae) {
+//   const age = calcAge(birthYear);
+//   const retirement = 65 - age;
+//   if (retirement > 0) {
+//     console.log(`${firstNmae} retires after ${retirement} years`);
+//     return retirement;
+//   } else {
+//     console.log(`${firstNmae} has already retired`);
+//     return -1;
+//   }
+//   //   return `${firstNmae} retires after ${retirement} years`;
+// };
+
+// console.log(yearsUntilRetirement(1991, "charles"));
+// console.log(yearsUntilRetirement(1950, "churu"));
+
+// CODING CHALLENGE 1
+// const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+// const avgDolhins = calcAverage(44, 23, 71);
+// const avgKoalas = calcAverage(65, 54, 49);
+// const checkWiner = function (avgDolhins, avgKoalas) {
+//   if (avgDolhins >= 2 * avgKoalas) {
+//     console.log(`Dolphins win (${avgDolhins} vs ${avgKoalas})`);
+//   } else if (avgKoalas >= 2 * avgDolhins) {
+//     console.log(`Dolphins win (${avgKoalas} vs ${avgDolhins})`);
+//   } else {
+//     console.log("No team wins");
+//   }
+// };
+// checkWiner(avgDolhins, avgKoalas);
+
+//          introduction to arrays
+// array is like a big contatainer in which we can store our data
+// it is a type of a data structure
+
+// there are varous methods to create arrays
+// 1. using the square brackets the literall syntax
+const friends = ["Charles", "Churu", "Wambui"];
+console.log(friends);
+
+// 2. using the array method
+// const years = new Array(1991, 1992, 2008, 2020);
+// console.log(years);
+
+console.log(friends[0]);
+console.log[friends[2]];
+
+console.log(friends.length);
+console.log(friends[friends.length - 2]);
+
+// adding elements and rmeoving in an array
+
+friends[2] = "James";
+console.log(friends);
+
+// friends = ["bob", "jj"];  ilegal
+
+// can hold different values at the same time
+const firstName = "charles";
+const charles = [firstName, "Churu", 2037 - 1991, "programmer", friends];
+console.log(charles);
+console.log(charles.length);
+
+// array exercise
+const calcAge2 = function calcage2(birthYear) {
+  return 2037 - birthYear;
+};
+const years = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge2(years[0]);
+const age2 = calcAge2(years[1]);
+const age3 = calcAge2(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+const ages = [calcAge2(years[0])];
