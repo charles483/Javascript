@@ -217,14 +217,25 @@ console.log(fruitProcessor(2, 3)); */
 // objects are like arrays but with key value pairs
 // objects are used to group together different variables and functions
 // recap of arrays
-const charlesArray = [
-  "charles",
-  "churu ",
-  2037 - 1991,
-  "programmer",
-  ["charles", "churu", "wambui"],
-];
-console.log(charlesArray);
+// const charlesArray = [
+//   "charles",
+//   "churu ",
+//   2037 - 1991,
+//   "programmer",
+//   ["charles", "churu", "wambui"],
+// ];
+// console.log(charlesArray);
+
+// const charles = {
+//   firstName: "Charles",
+//   lastName: "Churu",
+//   job: "Programmer",
+//   age: 2037 - 1991,
+//   frienddsList: ["charles", "churu", "wambui"],
+// };
+// console.log(charles);
+
+// ertrieving data from an object
 
 const charles = {
   firstName: "Charles",
@@ -234,3 +245,5 @@ const charles = {
   frienddsList: ["charles", "churu", "wambui"],
 };
 console.log(charles);
+console.log(charles.lastName);
+console.log(charles["lastName"]);
