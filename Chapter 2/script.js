@@ -225,3 +225,12 @@ const charlesArray = [
   ["charles", "churu", "wambui"],
 ];
 console.log(charlesArray);
+
+const charles = {
+  firstName: "Charles",
+  lastName: "Churu",
+  job: "Programmer",
+  age: 2037 - 1991,
+  frienddsList: ["charles", "churu", "wambui"],
+};
+console.log(charles);
