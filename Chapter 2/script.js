@@ -122,41 +122,106 @@ console.log(fruitProcessor(2, 3)); */
 
 // there are varous methods to create arrays
 // 1. using the square brackets the literall syntax
-const friends = ["Charles", "Churu", "Wambui"];
-console.log(friends);
+// const friends = ["Charles", "Churu", "Wambui"];
+// console.log(friends);
 
-// 2. using the array method
-// const years = new Array(1991, 1992, 2008, 2020);
-// console.log(years);
+// // 2. using the array method
+// const y = new Array(1991, 1992, 2008, 2020);
+// console.log(y);
 
-console.log(friends[0]);
-console.log[friends[2]];
+// console.log(friends[0]);
+// console.log[friends[2]];
 
-console.log(friends.length);
-console.log(friends[friends.length - 2]);
+// console.log(friends.length);
+// console.log(friends[friends.length - 2]);
 
-// adding elements and rmeoving in an array
+// // adding elements and rmeoving in an array
 
-friends[2] = "James";
-console.log(friends);
+// friends[2] = "James";
+// console.log(friends);
+// friends.pop();
+// const popped = friends.pop();
+// console.log(popped);
+// console.log(friends);
+
+// friends.unshift();
+// console.log(friends);
+// console.log(friends.indexOf("Charles"));
+
+// console.log(friends.indexOf("Bob"));
+
+// console.log(friends.includes("Charles"));
+// friends.push(23);
+// console.log(friends.includes("23")); // will produce false
+
+// if (friends.includes("Charles")) {
+//   console.log("you have a a friend called Charles");
+// }
 
 // friends = ["bob", "jj"];  ilegal
 
 // can hold different values at the same time
-const firstName = "charles";
-const charles = [firstName, "Churu", 2037 - 1991, "programmer", friends];
-console.log(charles);
-console.log(charles.length);
+// const firstName = "charles";
+// const charles = [firstName, "Churu", 2037 - 1991, "programmer", friends];
+// console.log(charles);
+// console.log(charles.length);
 
-// array exercise
-const calcAge2 = function calcage2(birthYear) {
-  return 2037 - birthYear;
-};
-const years = [1990, 1967, 2002, 2010, 2018];
+// // array exercise
+// const calcAge2 = function calcage2(birthYear) {
+//   return 2037 - birthYear;
+// };
+// const years = [1990, 1967, 2002, 2010, 2018];
 
-const age1 = calcAge2(years[0]);
-const age2 = calcAge2(years[1]);
-const age3 = calcAge2(years[years.length - 1]);
-console.log(age1, age2, age3);
+// const age1 = calcAge2(years[0]);
+// const age2 = calcAge2(years[1]);
+// const age3 = calcAge2(years[years.length - 1]);
+// console.log(age1, age2, age3);
 
-const ages = [calcAge2(years[0])];
+// const ages = [
+//   calcAge2(years[0]),
+//   calcAge2(years[1]),
+//   calcAge2(years[years.length - 1]),
+// ];
+
+//     CODING CHALLENGE 2
+// here we are concentrating on arrays tobuild a tip calculator
+// const calcTip = function (bill) {
+//   return bill >= 50 && bill <= 300 ? 0.15 * bill : 0.2 * bill;
+//   // return tip;
+// };
+// const bill = 275;
+// const tip = calcTip(bill);
+// const total = tip + bill;
+// console.log(
+//   `The bill was ${bill}, the tip was ${tip}, and the total value ${total}`,
+// );
+
+// // now let us use arrays to calculate the tips
+// const bills = [125, 555, 44];
+// const tips = [
+//   calcTip(bills[0]),
+//   calcTip(bills[1]),
+//   calcTip(bills[bills.length - 1]),
+// ];
+// const totals = [
+//   bills[0] + tips[0],
+//   bills[1] + tips[1],
+//   bills[bills.length - 1] + tips[tips.length - 1],
+// ];
+// console.log(bills);
+// console.log(tips);
+// console.log(totals);
+
+//          introduction to objects
+// objects are another fundamental concept in javascript
+// objects are like arrays but with key value pairs
+// objects are used to group together different variables and functions
+// recap of arrays
+const charlesArray = [
+  "charles",
+  "churu ",
+  2037 - 1991,
+  "programmer",
+  ["charles", "churu", "wambui"],
+];
+console.log(charlesArray);
