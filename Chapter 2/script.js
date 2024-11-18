@@ -242,8 +242,33 @@ const charles = {
   lastName: "Churu",
   job: "Programmer",
   age: 2037 - 1991,
-  frienddsList: ["charles", "churu", "wambui"],
+  friendsList: ["charles", "churu", "wambui"],
 };
 console.log(charles);
 console.log(charles.lastName);
 console.log(charles["lastName"]);
+
+const nameKey = "Name";
+console.log(charles["first" + nameKey]);
+console.log(charles["last" + nameKey]);
+
+// console.log(charles.'last'+nameKey);
+const interestedIn = prompt(
+  "Whta  do you want to know about  charles choose between firstName, lastName, job, age, and friendsList",
+);
+
+if (charles[interestedIn]) {
+  console.log(charles[interestedIn]);
+} else {
+  console.log(
+    "Wrong request! Choose between firstName, lastName, job, age, and friendsList",
+  );
+}
+charles.location = "Kenya";
+charles["twitter"] = "@churu";
+console.log(charles);
+
+////Challenge
+// "Charles has 3 friends, and his best friend is called churu"
+const statement = `${charles.firstName} has ${charles.friendsList.length} friends,  and his best friend is ${charles.friendsList[0]}`;
+console.log(statement);
