@@ -237,38 +237,99 @@ console.log(fruitProcessor(2, 3)); */
 
 // ertrieving data from an object
 
-const charles = {
-  firstName: "Charles",
-  lastName: "Churu",
-  job: "Programmer",
-  age: 2037 - 1991,
-  friendsList: ["charles", "churu", "wambui"],
+// const charles = {
+//   firstName: "Charles",
+//   lastName: "Churu",
+//   job: "Programmer",
+//   age: 2037 - 1991,
+//   friendsList: ["charles", "churu", "wambui"],
+// };
+// console.log(charles);
+// console.log(charles.lastName);
+// console.log(charles["lastName"]);
+
+// const nameKey = "Name";
+// console.log(charles["first" + nameKey]);
+// console.log(charles["last" + nameKey]);
+
+// // console.log(charles.'last'+nameKey);
+// const interestedIn = prompt(
+//   "Whta  do you want to know about  charles choose between firstName, lastName, job, age, and friendsList",
+// );
+
+// if (charles[interestedIn]) {
+//   console.log(charles[interestedIn]);
+// } else {
+//   console.log(
+//     "Wrong request! Choose between firstName, lastName, job, age, and friendsList",
+//   );
+// }
+// charles.location = "Kenya";
+// charles["twitter"] = "@churu";
+// console.log(charles);
+
+// ////Challenge
+// // "Charles has 3 friends, and his best friend is called churu"
+// const statement = `${charles.firstName} has ${charles.friendsList.length} friends,  and his best friend is ${charles.friendsList[0]}`;
+// console.log(statement);
+
+// const charles = {
+//   firstName: "Charles",
+//   lastName: "Churu",
+//   job: "Programmer",
+//   birthYear: 1991,
+//   friendsList: ["charles", "churu", "wambui"],
+//   hasDriversLicence: true,
+//   // calcAge: function (birthYear) {
+//   //   return 2037 - birthYear;
+//   // },
+//   // calcAge: function () {
+//   //   return 2037 - this.birthYear;
+//   // },
+//   calcAge: function () {
+//     this.age = 2037 - this.birthYear;
+//     return this.age;
+//   },
+// };
+
+// // console.log(this);
+// console.log(charles.calcAge());
+// console.log(charles.age);
+// console.log(charles.age);
+// console.log(charles.age);
+
+// // Challenge
+// // charles is a 46 years old teacher, and he has a drivers licence
+// const getSummary= function(){
+//   if (charles[hasDriversLicence]){
+//     console.log(`${charles.firstName} is a ${this.age} year old ${charles.job} and he has a drivers licence` )
+//   }else{
+//     console.log(`${charles.firstName} is a ${this.age} year old ${charles.job} and he does not have a drivers licence` )
+
+//   }
+// };
+
+// coding challenge 3
+const markMiller = {
+  firsrName: "Mark",
+  lastName: "Miller's",
+  mass: 78,
+  height: 1.69,
+  calcBmi: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
 };
-console.log(charles);
-console.log(charles.lastName);
-console.log(charles["lastName"]);
-
-const nameKey = "Name";
-console.log(charles["first" + nameKey]);
-console.log(charles["last" + nameKey]);
-
-// console.log(charles.'last'+nameKey);
-const interestedIn = prompt(
-  "Whta  do you want to know about  charles choose between firstName, lastName, job, age, and friendsList",
+const johnSmith = {
+  firsrName: "John",
+  lastName: "Smith",
+  mass: 92,
+  height: 1.95,
+  calcBmi: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+console.log(
+  `${markMiller.firsrName} ${markMiller.lastName} BMI ${markMiller.bmi} is higher than ${johnSmith.firsrName} ${johnSmith.lastName} BMI ${johnSmith.bmi}`,
 );
-
-if (charles[interestedIn]) {
-  console.log(charles[interestedIn]);
-} else {
-  console.log(
-    "Wrong request! Choose between firstName, lastName, job, age, and friendsList",
-  );
-}
-charles.location = "Kenya";
-charles["twitter"] = "@churu";
-console.log(charles);
-
-////Challenge
-// "Charles has 3 friends, and his best friend is called churu"
-const statement = `${charles.firstName} has ${charles.friendsList.length} friends,  and his best friend is ${charles.friendsList[0]}`;
-console.log(statement);
