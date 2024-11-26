@@ -333,3 +333,4 @@ const johnSmith = {
 console.log(
   `${markMiller.firsrName} ${markMiller.lastName} BMI ${markMiller.bmi} is higher than ${johnSmith.firsrName} ${johnSmith.lastName} BMI ${johnSmith.bmi}`,
 );
+
