@@ -310,27 +310,105 @@ console.log(fruitProcessor(2, 3)); */
 // };
 
 // coding challenge 3
-const markMiller = {
-  firsrName: "Mark",
-  lastName: "Miller's",
-  mass: 78,
-  height: 1.69,
-  calcBmi: function () {
-    this.bmi = this.mass / this.height ** 2;
-    return this.bmi;
-  },
-};
-const johnSmith = {
-  firsrName: "John",
-  lastName: "Smith",
-  mass: 92,
-  height: 1.95,
-  calcBmi: function () {
-    this.bmi = this.mass / this.height ** 2;
-    return this.bmi;
-  },
-};
-console.log(
-  `${markMiller.firsrName} ${markMiller.lastName} BMI ${markMiller.bmi} is higher than ${johnSmith.firsrName} ${johnSmith.lastName} BMI ${johnSmith.bmi}`,
-);
+// const markMiller = {
+//   firstName: "Mark",
+//   lastName: "Miller",
+//   mass: 78,
+//   height: 1.69,
+//   calcBmi: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
+// const johnSmith = {
+//   firstName: "John",
+//   lastName: "Smith",
+//   mass: 92,
+//   height: 1.95,
+//   calcBmi: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
 
+// markMiller.calcBmi();
+// johnSmith.calcBmi();
+
+// const message =
+//   markMiller.bmi > johnSmith.bmi
+//     ? `${markMiller.firstName} ${
+//         markMiller.lastName
+//       }'s BMI (${markMiller.bmi.toFixed(1)}) is higher than ${
+//         johnSmith.firstName
+//       } ${johnSmith.lastName}'s BMI (${johnSmith.bmi.toFixed(1)})`
+//     : `${johnSmith.firstName} ${
+//         johnSmith.lastName
+//       }'s BMI (${johnSmith.bmi.toFixed(1)}) is higher than ${
+//         markMiller.firstName
+//       } ${markMiller.lastName}'s BMI (${markMiller.bmi.toFixed(1)})`;
+
+// console.log(message);
+
+// iterations and looping
+// console.log("Lifting weights repetition 1");
+// console.log("Lifting weights repetition 2");
+// console.log("Lifting weights repetition 3");
+// console.log("Lifting weights repetition 4");
+// console.log("Lifting weights repetition 5");
+// console.log("Lifting weights repetition 6");
+// console.log("Lifting weights repetition 7");
+// console.log("Lifting weights repetition 8");
+// console.log("Lifting weights repetition 9");
+// console.log("Lifting weights repetition 10");
+
+// for loop keeps running while the condition is true
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep}`);
+// }
+
+// looping in arrays  , breaking and continuing
+// const charlesArray = [
+//   "charles",
+//   "churu",
+//   2037 - 2022,
+//   ["charles", "churu", "peter"],
+// ];
+
+// const types = [];
+// // charlesArray[5] does not exist
+// for (let i = 0; i < charlesArray.length; i++) {
+//   console.log(charlesArray[i]);
+// }
+
+// for (let i = 0; i < charlesArray.length; i++) {
+//   // types[i] = typeof charlesArray[i];
+//   types.push(typeof charlesArray[i]);
+// }
+
+// console.log(types);
+
+// // creating array using for loop
+// const years = [1999, 2000, 2020, 2023];
+// const ages = [];
+// const calcAge = function () {
+//   for (let i = 0; i < years.length; i++) {
+//     const age = 2037 - years[i];
+//     ages.push(age);
+//   }
+// };
+// calcAge(years);
+// console.log(ages);
+
+// continue and break
+
+const charlesArray = [
+  "charles",
+  "churu",
+  2037 - 2022,
+  ["charles", "churu", "peter"],
+];
+
+for (let i = 0; i < charlesArray.length; i++) {
+  if (typeof charlesArray[i] !== "string") continue;
+  console.log(charlesArray[i], typeof charlesArray[i]);
+}
