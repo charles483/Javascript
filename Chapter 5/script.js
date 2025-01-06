@@ -8,3 +8,4 @@ console.log(document.querySelector(".message").textContent);
 // change attributes and styles and manipulate them 
 // dom is document object model 
 // used to interact with HTML
+
