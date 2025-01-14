@@ -16,9 +16,10 @@
 // console.log(document.querySelector('.guess').value);
 
 // document.querySelector('.guess').value=23;
-//handling the click of a button
+// handling the click of a button
 
 // event listeners
+
 
 let secretNumber =Math.trunc(Math.random()*20)+1
 let score=20;
